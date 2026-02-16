@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vectura - Project VECTOR Official v1.1</title>
+    <title>Vectura - Professional LaTeX Workbench | Project VECTOR</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -16,14 +16,14 @@
                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
                     <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-indigo-600"></span>
                 </span>
-                <span class="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em]">Project VECTOR v1.1</span>
+                <span class="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em]">Project VECTOR v1.1 Official</span>
             </div>
             <h1 class="text-6xl xl:text-7xl font-black tracking-tighter text-slate-900 mb-4 leading-none">
                 Vectura<span class="text-indigo-600">.</span>
             </h1>
             <p class="text-slate-500 text-lg font-medium max-w-3xl mx-auto leading-relaxed">
-                研究を、美しく。データを、一瞬で。
-                <br class="hidden md:block">STEM領域の学術規約を網羅した、プロフェッショナルなLaTeXテーブル・ワークベンチ。
+                Refine Research. Instant Data.
+                <br class="hidden md:block">A professional LaTeX workbench covering STEM academic conventions.
             </p>
         </header>
 
@@ -34,29 +34,29 @@
                     <div class="flex items-center justify-between mb-6">
                         <div class="flex items-center gap-4">
                             <div class="w-10 h-10 bg-indigo-600 text-white rounded-[1rem] flex items-center justify-center text-lg font-black shadow-lg">1</div>
-                            <h2 class="font-black text-slate-800 text-2xl tracking-tight">データ入力</h2>
+                            <h2 class="font-black text-slate-800 text-2xl tracking-tight uppercase">Data Entry</h2>
                         </div>
                         <label class="flex items-center gap-3 px-4 py-2 bg-slate-50 rounded-xl cursor-pointer hover:bg-slate-100 transition-all border border-slate-100">
                             <input type="checkbox" id="hasHeader" checked class="w-5 h-5 text-indigo-600 rounded accent-indigo-600">
-                            <span class="text-xs font-black text-slate-600 uppercase tracking-widest">見出し有</span>
+                            <span class="text-xs font-black text-slate-600 uppercase tracking-widest">Has Header</span>
                         </label>
                     </div>
-                    <textarea id="inputData" class="w-full h-64 p-6 premium-input rounded-[1.5rem] font-mono text-[14px] leading-relaxed custom-scrollbar" placeholder="TSVデータをペースト..."></textarea>
+                    <textarea id="inputData" class="w-full h-64 p-6 premium-input rounded-[1.5rem] font-mono text-[14px] leading-relaxed custom-scrollbar" placeholder="Paste your TSV/Excel data here..."></textarea>
                 </section>
 
                 <section class="bg-white p-8 rounded-[3rem] border border-slate-200 shadow-premium">
                     <div class="flex items-center gap-4 mb-8">
                         <div class="w-10 h-10 bg-indigo-600 text-white rounded-[1rem] flex items-center justify-center text-lg font-black">2</div>
-                        <h2 class="font-black text-slate-800 text-2xl tracking-tight">ドキュメント設定</h2>
+                        <h2 class="font-black text-slate-800 text-2xl tracking-tight uppercase">Configuration</h2>
                     </div>
                     <div class="grid grid-cols-2 gap-6">
                         <div class="space-y-2">
                             <label class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-2 block">Table Caption</label>
-                            <input type="text" id="tableCaption" class="w-full premium-input rounded-xl" placeholder="例: 測定結果">
+                            <input type="text" id="tableCaption" class="w-full premium-input rounded-xl" placeholder="Experimental Results">
                         </div>
                         <div class="space-y-2">
                             <label class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-2 block">Reference Label</label>
-                            <input type="text" id="tableLabel" class="w-full premium-input rounded-xl font-mono" placeholder="tab:results">
+                            <input type="text" id="tableLabel" class="w-full premium-input rounded-xl font-mono" placeholder="tab:measured_data">
                         </div>
                     </div>
                 </section>
@@ -65,25 +65,25 @@
                     <div class="flex items-center justify-between mb-8">
                         <div class="flex items-center gap-4">
                             <div class="w-10 h-10 bg-indigo-600 text-white rounded-[1rem] flex items-center justify-center text-lg font-black">3</div>
-                            <h2 class="font-black text-slate-800 text-2xl tracking-tight">列の構成</h2>
+                            <h2 class="font-black text-slate-800 text-2xl tracking-tight uppercase">Column Setup</h2>
                         </div>
                         <button id="resetManualBtn" class="px-5 py-2 text-[10px] font-black text-indigo-600 hover:text-white hover:bg-indigo-600 bg-indigo-50 rounded-full transition-all border-2 border-indigo-100 uppercase">Reset Sync</button>
                     </div>
                     <div id="columnControls" class="space-y-12 max-h-[600px] overflow-y-auto pr-4 custom-scrollbar">
-                        <div class="text-center py-20 text-slate-300 font-bold italic text-base">データを貼り付けてください...</div>
+                        <div class="text-center py-20 text-slate-300 font-bold italic text-base">Awaiting data input...</div>
                     </div>
                 </section>
 
                 <section class="bg-white p-8 rounded-[3rem] border border-slate-200 shadow-premium">
                     <div class="flex items-center gap-4 mb-8">
                         <div class="w-10 h-10 bg-indigo-600 text-white rounded-[1rem] flex items-center justify-center text-lg font-black">4</div>
-                        <h2 class="font-black text-slate-800 text-2xl tracking-tight">出力品質</h2>
+                        <h2 class="font-black text-slate-800 text-2xl tracking-tight uppercase">Output Tuning</h2>
                     </div>
                     <div class="space-y-8">
                         <div>
                             <div class="flex justify-between items-center mb-6">
-                                <span class="text-xs font-black text-slate-400 uppercase tracking-[0.2em]">有効数字 (Significant Figs)</span>
-                                <span id="sigFigLabel" class="text-xs font-black text-indigo-600 bg-indigo-50 px-4 py-1.5 rounded-full border border-indigo-100 shadow-sm">3 桁表示</span>
+                                <span class="text-xs font-black text-slate-400 uppercase tracking-[0.2em]">Significant Figures</span>
+                                <span id="sigFigLabel" class="text-xs font-black text-indigo-600 bg-indigo-50 px-4 py-1.5 rounded-full border border-indigo-100 shadow-sm">3 Digits</span>
                             </div>
                             <input type="range" id="sigFigs" min="1" max="6" value="3" class="w-full h-2 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-indigo-600">
                         </div>
@@ -94,35 +94,35 @@
                                     <span class="text-xs font-black text-slate-800">Booktabs</span>
                                     <input type="checkbox" id="useBooktabs" checked class="w-5 h-5 text-indigo-600 rounded">
                                 </div>
-                                <span class="text-[10px] text-slate-400 font-bold italic">高品質な水平線。</span>
+                                <span class="text-[10px] text-slate-400 font-bold leading-relaxed italic">Academic style lines.</span>
                             </label>
                             <label class="flex flex-col p-6 bg-slate-50 rounded-[2rem] border border-slate-100 cursor-pointer hover:bg-white hover:border-indigo-100 transition-all shadow-sm">
                                 <div class="flex items-center justify-between mb-2">
                                     <span class="text-xs font-black text-slate-800">ResizeBox</span>
                                     <input type="checkbox" id="autoResize" class="w-5 h-5 text-indigo-600 rounded">
                                 </div>
-                                <span class="text-[10px] text-slate-400 font-bold italic">横幅に自動フィット。</span>
+                                <span class="text-[10px] text-slate-400 font-bold leading-relaxed italic">Fit to text width.</span>
                             </label>
                             <label class="flex flex-col p-6 bg-slate-50 rounded-[2rem] border border-slate-100 cursor-pointer hover:bg-white hover:border-indigo-100 transition-all shadow-sm">
                                 <div class="flex items-center justify-between mb-2">
                                     <span class="text-xs font-black text-slate-800">Split Table</span>
                                     <input type="checkbox" id="splitTable" class="w-5 h-5 text-indigo-600 rounded">
                                 </div>
-                                <span class="text-[10px] text-slate-400 font-bold italic">表を二分割。</span>
+                                <span class="text-[10px] text-slate-400 font-bold leading-relaxed italic">Two-column layout.</span>
                             </label>
                             <label class="flex flex-col p-6 bg-slate-50 rounded-[2rem] border border-slate-100 cursor-pointer hover:bg-white hover:border-indigo-100 transition-all shadow-sm">
                                 <div class="flex items-center justify-between mb-2">
                                     <span class="text-xs font-black text-slate-800">siunitx</span>
                                     <input type="checkbox" id="useSiunitx" class="w-5 h-5 text-indigo-600 rounded">
                                 </div>
-                                <span class="text-[10px] text-slate-400 font-bold italic">\num命令を使用。</span>
+                                <span class="text-[10px] text-slate-400 font-bold leading-relaxed italic">Use \num command.</span>
                             </label>
                         </div>
                        
                         <div class="p-6 bg-indigo-50 rounded-[2rem] border-2 border-indigo-100">
                             <label class="flex items-center gap-4 cursor-pointer">
                                 <input type="checkbox" id="scientific" class="w-6 h-6 text-indigo-600 rounded">
-                                <span class="text-xs font-black text-indigo-900 tracking-widest uppercase">全数値を指数表記 ($\times 10^n$) で出力</span>
+                                <span class="text-xs font-black text-indigo-900 tracking-widest uppercase italic">Force Scientific Notation ($\times 10^n$)</span>
                             </label>
                         </div>
                     </div>
@@ -160,7 +160,7 @@
                         <div class="bg-black/40 p-8 rounded-[2rem] border border-white/5 shadow-inner">
                             <div class="text-[10px] text-slate-600 font-black mb-6 tracking-[0.4em] uppercase flex justify-between items-center">
                                 <span>Required LaTeX Preamble</span>
-                                <button onclick="copyPreamble()" class="text-indigo-400 hover:text-indigo-300 transition-all text-[10px] font-black border border-indigo-900/40 px-6 py-2 rounded-full uppercase">Copy Pkg</button>
+                                <button onclick="copyPreamble()" class="text-indigo-400 hover:text-indigo-300 transition-all text-[10px] font-black border border-indigo-900/40 px-6 py-2 rounded-full">COPY PKG</button>
                             </div>
                             <code id="preambleCode" class="text-sm text-emerald-500/70 font-mono leading-relaxed block"></code>
                         </div>
