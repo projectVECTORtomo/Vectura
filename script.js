@@ -1,6 +1,6 @@
 /**
- * Vectura Core Engine v1.1 
- * Part of Project VECTOR by tomo
+ * Vectura Core Engine v1.1
+ * Developed by projectVECTORtomo
  */
 
 const PREFIXES = [
@@ -44,7 +44,7 @@ function escapeLatex(str) {
     return str.replace(/&/g, '\\&').replace(/%/g, '\\%').replace(/\$/g, '\\$').replace(/#/g, '\\#').replace(/_/g, '\\_').replace(/\{/g, '\\{').replace(/\}/g, '\\}');
 }
 
-// Vector Formatting Logic 
+// User Requirement: Vector Bold Styling (\mathbf)
 function applyVectorFormat(str) {
     let s = normalizeText(str);
     if (!s) return '';
@@ -70,7 +70,6 @@ function syncState() {
     const lines = raw.split('\n').filter(l => l.trim() !== '');
     const headerLine = lines[0].split('\t');
     const numCols = headerLine.length;
-    const isNumericHeader = headerLine.every(c => !isNaN(parseFloat(normalizeText(c))));
     
     if (columnState.length > numCols) columnState = columnState.slice(0, numCols);
     else if (columnState.length < numCols) {
@@ -79,14 +78,6 @@ function syncState() {
             columnState.push({ ...parsed, isManual: false, isMath: false, lastHeader: (headerLine[i] || '').trim() });
         }
     }
-    headerLine.forEach((cell, i) => {
-        if (columnState[i] && !columnState[i].isManual && !isNumericHeader) {
-            if (columnState[i].lastHeader !== cell.trim()) {
-                const parsed = parseHeader(cell.trim());
-                columnState[i] = { ...columnState[i], ...parsed, isManual: false, isMath: false, lastHeader: cell.trim() };
-            }
-        }
-    });
     renderControls();
     generate();
 }
@@ -94,9 +85,7 @@ function syncState() {
 function renderControls() {
     const html = columnState.map((col, i) => `
         <div class="column-card p-8 rounded-[2rem] ${col.isManual ? 'manual-edit shadow-indigo-100 shadow-xl' : 'auto-detected shadow-md'}">
-            <span class="badge ${col.isManual ? 'bg-indigo-600 text-white' : 'bg-emerald-500 text-white'}">
-                ${col.isManual ? 'Manual' : 'Sync'}
-            </span>
+            <span class="badge ${col.isManual ? 'bg-indigo-600 text-white' : 'bg-emerald-500 text-white'}">${col.isManual ? 'Manual' : 'Sync'}</span>
             <div class="grid grid-cols-2 gap-4 mb-6">
                 <div class="space-y-1">
                     <label class="text-[9px] font-black text-slate-400 uppercase tracking-widest ml-2 block">Variable</label>
@@ -190,9 +179,9 @@ function generate() {
     const dataRows = els.hasHeader.checked ? lines.slice(1) : lines;
     const precision = parseInt(els.sigFigs.value);
     const forceSci = els.sci.checked;
-    const isSplit = els.split ? els.split.checked : false;
+    const isSplit = els.split.checked;
     const useBooktabs = els.useBooktabs.checked;
-    const useSiunitx = els.useSiunitx ? els.useSiunitx.checked : false;
+    const useSiunitx = els.useSiunitx.checked;
     const autoResize = els.autoResize.checked;
     
     let preamble = "\\usepackage{booktabs}";
@@ -238,7 +227,7 @@ function generate() {
     els.output.textContent = latex;
 }
 
-// Initial Setup 
+// Initial Listeners
 els.input.addEventListener('input', syncState);
 els.hasHeader.addEventListener('change', syncState);
 els.sigFigs.addEventListener('input', e => { els.sigFigLabel.textContent = `${e.target.value} 桁表示`; generate(); });
@@ -246,20 +235,11 @@ els.sigFigs.addEventListener('input', e => { els.sigFigLabel.textContent = `${e.
     if (e) e.addEventListener('input', generate);
 });
 els.resetBtn.addEventListener('click', () => { columnState = []; syncState(); });
-
 els.copy.addEventListener('click', () => {
     navigator.clipboard.writeText(els.output.textContent).then(() => {
-        els.copy.classList.add('bg-emerald-500');
         els.toast.classList.add('opacity-100', 'translate-y-0');
-        setTimeout(() => {
-            els.copy.classList.remove('bg-emerald-500');
-            els.toast.classList.remove('opacity-100', 'translate-y-0');
-        }, 1800);
+        setTimeout(() => els.toast.classList.remove('opacity-100', 'translate-y-0'), 1800);
     });
 });
-
-window.copyPreamble = function() {
-    navigator.clipboard.writeText(els.preamble.textContent);
-};
-
+window.copyPreamble = () => navigator.clipboard.writeText(els.preamble.textContent);
 syncState();

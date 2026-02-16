@@ -5,14 +5,17 @@
     --emerald-500: #10b981;
 }
 
-/* ターミナル風のデザイン  */
+body { 
+    background-color: #f8fafc; 
+    color: #0f172a; 
+}
+
+/* Glassmorphism Terminal effect */
 .glass-terminal {
     background: #020617;
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
     max-height: 85vh;
-    display: flex;
-    flex-direction: column;
 }
 
 .shadow-premium {
@@ -75,7 +78,7 @@
     box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
 }
 
-/* カスタムスクロールバー  */
+/* Custom Scrollbar for better UI */
 .custom-scrollbar::-webkit-scrollbar { width: 6px; }
 .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
 .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }

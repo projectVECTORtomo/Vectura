@@ -45,9 +45,10 @@ Vecturaは、STEM領域の学術規約を網羅した、エンジニアのため
 ---
 
 ## 👤 Author
-**tomo** (@YourGitHubID)
+**tomo** ([@projectVECTORtomo](https://github.com/projectVECTORtomo))
 * Founder of **Project VECTOR**
 * Electrical Engineering Student @ Tokyo University of Science
+* Vision: Achieving extreme efficiency through Engineering & Finance
 
 ---
 © 2026 Project VECTOR | Engineered for Excellence.
