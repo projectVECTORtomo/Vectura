@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
+
+:root {
+    --indigo-600: #4f46e5;
+    --emerald-500: #10b981;
+}
+
+/* ターミナル風のデザイン  */
+.glass-terminal {
+    background: #020617;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.shadow-premium {
+    box-shadow: 0 0 1px rgba(0,0,0,0.1), 0 4px 6px -1px rgba(0,0,0,0.05), 0 25px 30px -5px rgba(0,0,0,0.04);
+}
+
+.column-card { 
+    border: 2px solid #e2e8f0;
+    background: white;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
+    position: relative;
+}
+.column-card:hover { 
+    border-color: #cbd5e1;
+    transform: translateY(-2px);
+}
+.column-card.auto-detected { border-left: 6px solid var(--emerald-500); }
+.column-card.manual-edit { border-left: 6px solid var(--indigo-600); }
+
+.badge { 
+    font-size: 9px;
+    font-weight: 900; 
+    text-transform: uppercase; 
+    padding: 4px 12px; 
+    border-radius: 6px; 
+    position: absolute; 
+    top: -14px; 
+    right: 20px; 
+    z-index: 50;
+    letter-spacing: 0.1em;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.premium-input {
+    background-color: #f8fafc;
+    border: 2px solid #e2e8f0;
+    font-size: 14px;
+    padding: 10px 14px;
+    transition: all 0.2s ease;
+}
+.premium-input:focus {
+    background-color: white;
+    border-color: var(--indigo-600);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.08);
+}
+
+.align-btn { 
+    transition: all 0.2s;
+    width: 42px; height: 36px; 
+    display: flex; align-items: center; justify-content: center; 
+    font-size: 12px; font-weight: 900; 
+    background: #f1f5f9;
+    color: #64748b;
+    border-radius: 8px;
+}
+.align-btn.active { 
+    background-color: var(--indigo-600);
+    color: white; 
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+}
+
+/* カスタムスクロールバー  */
+.custom-scrollbar::-webkit-scrollbar { width: 6px; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
